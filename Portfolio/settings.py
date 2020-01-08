@@ -17,7 +17,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jobs.apps.JobsConfig',  # Add!!!!!!!!!!
+    'jobs.apps.JobsConfig',  # Add   (Добавление приложения Jobs)
+    'blog.apps.BlogConfig',  # Add   (Добавление приложения Blog)
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -106,5 +107,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Add
-MEDIA_URL = '/media/'  # Add
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Add      (адрес медиа папки)
+MEDIA_URL = '/media/'  # Add    (URL для медиа папки)

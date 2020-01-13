@@ -1,14 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-    {% load static %}           <!--                        Загрузка статических файлов (НЕ КАК В МАНУАЛЕ) -->
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Главная</title>
-
+    <title>Portfolio</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
     <!-- Bootstrap core CSS -->
@@ -28,47 +26,30 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="https://www.behance.net/filonov-al3718">Behance</a>
                 <a class="nav-item nav-link" href="https://vk.com/al_filax">VK</a>
-                <a class="nav-item nav-link" href="{% url 'allblogs' %}">Portfolio</a>
+                <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Portfolio</a>
             </div>
         </div>
     </nav>
 </header>
 
 <main role="main">
-
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1>Hi, my name is Alexander Filonov.</h1>
-            <p class="lead text-muted">I am an aspiring designer. I try to try myself in something new, and I want to
-                share my works with you. It is possible to hear constructive criticism or on the contrary praise.</p>
-
-            <img class="img-fluid" src="{% static 'fil.jpg' %}" width="300"/>
+    <div class="container">
+        <h1 class="text-center pt-3">Welcome to my portfolio</h1>
+        <br/>
+        <br/>
+        <h2>Recent projects</h2>
+        <hr/>           <!--                Очерк вдоль всей старницы-->
+        {% for blog in blogs.all %}
+            <a href="{% url 'detail' blog.id %}" ><h3>{{ blog.title }}</h3></a>
+            {{blog.pub_date_pretty}}
+            <br/>
+            <img class="img-fluid" src="{{ blog.image.url }}" width="400"/>
             <br/>
             <br/>
-            <p><a href="mailto:alexfilonov@yandex.ru" class="btn btn-primary my-2">Send message</a></p>
-        </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <h1 class="text-center pt-3">My tools</h1>
             <br/>
 
-            <div class="row">
-                {% for job in jobs.all %}      <!--                Цикл выводящий каждую запись БД -->
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow">
-                            <img class="card-img-top" src="{{ job.image.url }}" width="300" height="300"/>
-                            <!--         Вывод картинки из БД-->
-                            <div class="card-body">
-                                <p class="card-text">{{ job.title }}</p><!--                Вывод текста из БД-->
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}                  <!--                Конец цикла-->
 
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
 </main>

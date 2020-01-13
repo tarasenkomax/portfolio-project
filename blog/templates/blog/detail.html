@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-    {% load static %}           <!--                        Загрузка статических файлов (НЕ КАК В МАНУАЛЕ) -->
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Главная</title>
-
+    <title>{{ blog.title }}</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -35,40 +32,40 @@
 </header>
 
 <main role="main">
-
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1>Hi, my name is Alexander Filonov.</h1>
-            <p class="lead text-muted">I am an aspiring designer. I try to try myself in something new, and I want to
-                share my works with you. It is possible to hear constructive criticism or on the contrary praise.</p>
-
-            <img class="img-fluid" src="{% static 'fil.jpg' %}" width="300"/>
+    <div class="container">
+            <h1 class="text-center pt-3">{{blog.title}}</h1>
+            <p class="text-center pt-3">Posted: {{blog.pub_date_pretty}}</p>
+            {% if  blog.image1 %}
+            <img class="img-fluid" src="{{ blog.image1.url }}"/>
+            {% endif %}
+            {% if  blog.image2 %}
+            <img class="img-fluid"  src="{{ blog.image2.url }}"/>
+            {% endif %}
+            {% if  blog.image3 %}
+            <img class="img-fluid" src="{{ blog.image3.url }}"/>
+            {% endif %}
+            {% if  blog.image4 %}
+            <img class="img-fluid" src="{{ blog.image4.url }}"/>
+            {% endif %}
+            {% if  blog.image5 %}
+            <img class="img-fluid" src="{{ blog.image5.url }}"/>
+            {% endif %}
+            {% if  blog.image6 %}
+            <img class="img-fluid" src="{{ blog.image6.url }}"/>
+            {% endif %}
+            {% if  blog.image7 %}
+            <img class="img-fluid" src="{{ blog.image7.url }}"/>
+            {% endif %}
+            {% if  blog.image8 %}
+            <img class="img-fluid" src="{{ blog.image8.url }}"/>
+            {% endif %}
+            {% if  blog.image9 %}
+            <img class="img-fluid" src="{{ blog.image9.url }}"/>
+            {% endif %}
+            {% if  blog.image10 %}
+            <img class="img-fluid" src="{{ blog.image10.url }}"/>
+            {% endif %}
             <br/>
-            <br/>
-            <p><a href="mailto:alexfilonov@yandex.ru" class="btn btn-primary my-2">Send message</a></p>
-        </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <h1 class="text-center pt-3">My tools</h1>
-            <br/>
-
-            <div class="row">
-                {% for job in jobs.all %}      <!--                Цикл выводящий каждую запись БД -->
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow">
-                            <img class="card-img-top" src="{{ job.image.url }}" width="300" height="300"/>
-                            <!--         Вывод картинки из БД-->
-                            <div class="card-body">
-                                <p class="card-text">{{ job.title }}</p><!--                Вывод текста из БД-->
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}                  <!--                Конец цикла-->
-
-            </div>
-        </div>
     </div>
 
 </main>

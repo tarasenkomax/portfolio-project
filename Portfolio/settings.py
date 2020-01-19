@@ -64,7 +64,7 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Change (замена стандартной бд на psql)
-        'NAME': 'portfolio',  # Change   (имя бд)
+        'NAME': 'portfolio',  # Change   (имя бд, потом пишется в putty!!!!)
         'USER': 'postgres',  # Add       (имя пользователя)
         'PASSWORD': '7567',  # Add       (пароль)
         'HOST': 'localhost',  # Add      (адрес бд)

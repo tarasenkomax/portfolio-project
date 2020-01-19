@@ -113,3 +113,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Add    (адрес папки со статическими файлами)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Add      (адрес медиа папки)
 MEDIA_URL = '/media/'  # Add    (URL для медиа папки)
+
+try:  #     Add (после заливания на Git)
+    from local_setting import *
+except ImportError:
+    pass
